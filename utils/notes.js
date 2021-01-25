@@ -29,9 +29,19 @@ const listNotes = () => {
     });
 };
 
+const removeNote = noteToDelete => {
+    const allNotes = loadNotes();
+
+const notesToKeep = allNotes.filter(note => {
+return note.reminder != noteToDelete;
+});
+saveNotes(notesToKeep);   
+};
+
 module.exports = {
     addNote,
     listNotes,
+    removeNote,
 };
 
 const myObject = {

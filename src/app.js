@@ -1,5 +1,5 @@
 const yargs = require('yargs');
-const { addNote, listNotes} = require("../utils/notes");
+const { addNote, listNotes, removeNote} = require("../utils/notes");
 
 const command = process.argv[2];
 
@@ -12,6 +12,7 @@ if (command == "add") {
     listNotes();
 } else if (command == "remove") {
     console.log("removing");
+    removeNote(yargs.argv.note);
 } else {
     console.log("command not found");
 }
